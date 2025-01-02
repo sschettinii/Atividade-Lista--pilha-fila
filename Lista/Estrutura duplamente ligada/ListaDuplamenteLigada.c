@@ -62,14 +62,14 @@ bool excluirElemLista(LISTA* l, TIPOCHAVE ch) {
   while (i != NULL && i->reg.chave != ch) {
     i = i->prox;
   }
-  if (i == NULL) return false; // Elemento não encontrado
+  if (i == NULL) return false;
 
-  if (i->ant == NULL) { // O elemento é o primeiro
+  if (i->ant == NULL) {
     l->inicio = i->prox;
-    if (l->inicio != NULL) l->inicio->ant = NULL; // Atualiza o anterior do novo primeiro elemento
+    if (l->inicio != NULL) l->inicio->ant = NULL;
   } else {
     i->ant->prox = i->prox;
-    if (i->prox != NULL) i->prox->ant = i->ant; // Atualiza o anterior do próximo elemento
+    if (i->prox != NULL) i->prox->ant = i->ant;
   }
 
   free(i);
